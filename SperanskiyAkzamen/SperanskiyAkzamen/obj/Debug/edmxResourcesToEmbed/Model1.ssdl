@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Bd_SperanskiyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="kategorii_tovara">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="int" Nullable="false" />
+    <Property Name="name_categoriya_tovara" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TOVAR">
+    <Key>
+      <PropertyRef Name="Артикул" />
+    </Key>
+    <Property Name="Артикул" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Наименование " Type="nvarchar" MaxLength="255" />
+    <Property Name="Единица измерения" Type="nvarchar" MaxLength="255" />
+    <Property Name="Стоимость" Type="float" />
+    <Property Name="Размер максимально возможной скидки" Type="float" />
+    <Property Name="Производитель" Type="nvarchar" MaxLength="255" />
+    <Property Name="Поставщик" Type="nvarchar" MaxLength="255" />
+    <Property Name="Категория товара" Type="nvarchar" MaxLength="255" />
+    <Property Name="Действующая скидка" Type="float" />
+    <Property Name="Кол-во на складе" Type="float" />
+    <Property Name="Описание" Type="nvarchar" MaxLength="255" />
+    <Property Name="Изображение" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Kod_Roli" />
+    </Key>
+    <Property Name="Kod_Roli" Type="int" Nullable="false" />
+    <Property Name="Rol" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Фамилия" Type="nvarchar" MaxLength="255" />
+    <Property Name="Имя, отчество" Type="nvarchar" MaxLength="255" />
+    <Property Name="Login" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="Role" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="Хранилище Bd_SperanskiyModelContainer">
+    <EntitySet Name="kategorii_tovara" EntityType="Self.kategorii_tovara" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TOVAR" EntityType="Self.TOVAR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

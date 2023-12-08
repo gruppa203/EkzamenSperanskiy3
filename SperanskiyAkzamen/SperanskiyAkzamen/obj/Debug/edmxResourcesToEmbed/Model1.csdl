@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Bd_SperanskiyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Kod_Roli" />
+    </Key>
+    <Property Name="Kod_Roli" Type="Int32" Nullable="false" />
+    <Property Name="Rol" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Фамилия" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Имя__отчество" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="Bd_SperanskiyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="kategorii_tovara" EntityType="Bd_SperanskiyModel.kategorii_tovara" />
+    <EntitySet Name="TOVAR" EntityType="Bd_SperanskiyModel.TOVAR" />
+  </EntityContainer>
+  <EntityType Name="kategorii_tovara">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" />
+    <Property Name="name_categoriya_tovara" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TOVAR">
+    <Key>
+      <PropertyRef Name="Артикул" />
+    </Key>
+    <Property Name="Артикул" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Наименование_" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Единица_измерения" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Стоимость" Type="Double" />
+    <Property Name="Размер_максимально_возможной_скидки" Type="Double" />
+    <Property Name="Производитель" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Поставщик" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Категория_товара" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Действующая_скидка" Type="Double" />
+    <Property Name="Кол_во_на_складе" Type="Double" />
+    <Property Name="Описание" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Изображение" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
